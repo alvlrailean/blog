@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<link type="text/css" rel="stylesheet" href="../style/index.css">
+<link type="text/css" rel="stylesheet" href="../style/articless.css">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<section class="header">
+		<div class="header-logo">
+			<a href="/" class="header-logo--a"> <img style="height: 150px" src="http://interactive.nfb.ca/blabla/images/Blabla_web_1.jpg" alt="" class="header-logo--a---img"> </a>
+		</div>
+		<div class="header-nav">
+			<a href="/" class="header-nav--button button">О нас</a>
+			<a href="/articles" class="header-nav--button button">Статьи</a>
+		</div>
+	</section>
+
+<section class="articleNew">
+<div class="articleNew-wrapper">
+<p style="color: red; font-size: 18px; height: 20px"><%= @error %></p>
+
+	<form action="/articles" method="POST">
+
+		<input type="text" placeholder="Заголовок" class="titleText" name="title">
+		<textarea name="textArticle" placeholder="Текст" id="t" cols="30" rows="10"></textarea><br>
+		<input type="submit" class="button">
+
+	</form>
+
+</div>
+</section>
+
+<section class="artContent">
+	<div class="artContent-wrapper">
+		
+	<%@dbSelArt.each do |key, value| %>
+
+	<div class="article">
+	<h1>	<%= key['title'] %> </h1>
+	
+	<p>  <%= key['content'] %> </p>
+
+	<i>  <%= key['data']  %> </i>
+	</div>
+
+	<%end%>
+
+	</div>
+
+</section>
+
+
+
+
+<section class="footer">
+	
+	<div class="footer-content">
+		
+		<p>kakoito@gmail.com</p>
+		<p>+3736699885</p>
+
+	</div>
+
+</section>
+
+	</body>
+</html>
